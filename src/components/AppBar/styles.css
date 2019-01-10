@@ -5,7 +5,10 @@
 	top: 0;
 	margin-left: -20px;
 	width: 100%;
-	z-index: -1;
+}
+
+.searchAction {
+	z-index: 1;
 }
 
 .search {
@@ -20,8 +23,7 @@
 	font-family: 'Lato', sans-serif;
 }
 
-.sort * {
+.sort {
 	background-color: #313131;
 	color: #D9D9D9;
-	z-index: 1;
 }

@@ -3,7 +3,7 @@ import React from 'react'
 
 import styles from './styles.css'
 
-const Search = ({ value, onChange, enter }) => (
+const Search = ({ value, onChange, onEnterKey }) => (
 	<div className={styles.bar}>
 		<input
 			className={styles.search}
@@ -12,10 +12,11 @@ const Search = ({ value, onChange, enter }) => (
 				e.preventDefault()
 				onChange(e.target.value)
 			}}
+			// Handles enterkeypress for search
 			onKeyPress={(e) => {
-				if (e.key === 'Enter') {
+				if (e.key === 'Enter' && value) {
 					e.preventDefault()
-					enter()
+					onEnterKey()
 				}
 			}}
 			value={value}

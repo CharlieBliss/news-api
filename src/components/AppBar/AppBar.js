@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import classnames from 'classnames'
-import { hitNewsApi } from '../../logic/api'
+import { onScroll, handleSearch } from '../../logic/api'
 
 
 import { Search, Sort, Button } from '..'
 import styles from './styles.css'
 
-const AppBar = ({ getArticles }) => {
+const AppBar = ({ articles, setArticles }) => {
 	const [search, setSearch] = useState('')
 	const [sort, setSort] = useState('')
+	const [page, setPage] = useState(1)
 
-	const handleClick = async () => {
-		const results = await hitNewsApi(search, sort, 1)
-		getArticles(results)
-	}
+	// Handles Initial search
+	const handleClick = () => { handleSearch(search, sort, page, setPage, setArticles) }
+	window.onscroll = () => { onScroll(search, sort, page, setPage, articles, setArticles) }
 
 	return (
 		<div
@@ -27,7 +27,7 @@ const AppBar = ({ getArticles }) => {
 				<Search
 					value={search}
 					onChange={setSearch}
-					enter={handleClick}
+					onEnterKey={handleClick}
 				/>
 			</div>
 			<div className="flex-15">
@@ -36,7 +36,7 @@ const AppBar = ({ getArticles }) => {
 					onChange={setSort}
 				/>
 			</div>
-			<div className="flex-15">
+			<div className={classnames(styles.searchAction, 'flex-15')}>
 				<Button
 					label="Search"
 					onClick={handleClick}
@@ -49,7 +49,12 @@ const AppBar = ({ getArticles }) => {
 }
 
 AppBar.propTypes = {
-	getArticles: PropTypes.func.isRequired,
+	articles: PropTypes.array,
+	setArticles: PropTypes.func.isRequired,
+}
+
+AppBar.defaultProps = {
+	articles: [],
 }
 
 export default AppBar

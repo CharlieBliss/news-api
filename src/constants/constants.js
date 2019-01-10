@@ -4,21 +4,17 @@ export const sortOptions = [
 		label: 'Default',
 	},
 	{
-		value: 'date',
+		value: 'publishedAt',
 		label: 'Date (Newest)',
 	},
 	{
-		value: '-date',
-		label: 'Date (Oldest)',
-	},
-	{
-		value: 'popular',
+		value: 'popularity',
 		label: 'Most Popular',
 	},
 	{
-		value: 'relevance',
+		value: 'relevancy',
 		label: 'Most Relevant',
 	},
 ]
 
-export const apiKey = '6023839d3149432289f2abc564ee5736'
+export const apiKey = 'bf62283b801b41f18916984d4beee143'

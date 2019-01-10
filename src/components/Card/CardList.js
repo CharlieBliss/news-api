@@ -13,7 +13,7 @@ const CardList = ({ cardList }) => {
 				body={card.description}
 				url={card.url}
 				// The image prop will only use the default if undefined -- otherwise passing
-				 // null creates a broken image link
+				// null creates a broken image link
 				image={card.urlToImage || undefined}
 			/>
 		</div>

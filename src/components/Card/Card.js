@@ -4,7 +4,7 @@ import React from 'react'
 import { Paper, Button } from '..'
 import styles from './styles.css'
 
-const handleClick = (url) => window.open(url)
+const handleClick = url => window.open(url)
 
 const Card = ({
 	title,

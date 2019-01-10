@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { get } from 'lodash'
 import 'react-material-layout/dist/react-material-class-layout.min.css'
 import { CardList, AppBar } from './components'
 import styles from './App.css'
@@ -9,16 +8,20 @@ import styles from './App.css'
 
 const App = () => {
 
-	const [articles, getArticles] = useState([])
-	console.log(get(articles, 'articles'))
+	// In an api call-heavy app (especially with CRUD), I would probably use redux
+	// but I like the new react hooks syntax for simple stuff like this
+
+	const [articles, setArticles] = useState([])
+
 	return (
 		<div>
 			<AppBar
-				getArticles={getArticles}
+				setArticles={setArticles}
+				articles={articles}
 			/>
 			<div className={styles.content}>
 				<CardList
-					cardList={get(articles, 'articles')}
+					cardList={articles}
 				/>
 			</div>
 		</div>
