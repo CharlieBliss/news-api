@@ -13,6 +13,6 @@
 
 ## Tests
 
-* Run Yarn Test
+* Run `yarn Test`
 
 
