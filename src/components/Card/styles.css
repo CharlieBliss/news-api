@@ -1,0 +1,45 @@
+.white {
+	background-color: white;
+}
+
+.shadow {
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 4px, rgba(0, 0, 0, 0.26) 0px 4px 4px;
+}
+.paper {
+	max-width: fit-content;
+}
+
+.content * {
+	font-family: 'Lato', sans-serif;
+	padding: 12px;
+}
+
+.title {
+	font-size: 20px;
+	font-weight: bold;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-height: 100px;
+}
+
+.body {
+	overflow: hidden;
+	 display: -webkit-box;
+	 -webkit-line-clamp: 3;
+	 -webkit-box-orient: vertical;
+	 padding-bottom: 1px;
+
+}
+
+.cardListItem {
+	padding: 40px 0px 40px;
+}
+.card {
+	width: 450px;
+	height: 500px;
+}
+.image {
+	width: 100%;
+	max-height: 250px;
+	cursor: pointer;
+}
