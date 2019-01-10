@@ -10,3 +10,9 @@
 
 * open `localhost:3000` in browser
 
+
+## Tests
+
+* Run Yarn Test
+
+
