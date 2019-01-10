@@ -12,16 +12,22 @@ const App = () => {
 	// but I like the new react hooks syntax for simple stuff like this
 
 	const [articles, setArticles] = useState([])
+	const [loading, setLoading] = useState(false)
+	const [active, setActive] = useState(false)
 
 	return (
 		<div>
 			<AppBar
 				setArticles={setArticles}
 				articles={articles}
+				setActive={setActive}
+				setLoading={setLoading}
 			/>
 			<div className={styles.content}>
 				<CardList
 					cardList={articles}
+					active={active}
+					loading={loading}
 				/>
 			</div>
 		</div>

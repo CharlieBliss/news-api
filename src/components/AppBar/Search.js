@@ -3,7 +3,7 @@ import React from 'react'
 
 import styles from './styles.css'
 
-const Search = ({ value, onChange, onEnterKey }) => (
+const Search = React.memo(({ value, onChange, onEnterKey }) => (
 	<div className={styles.bar}>
 		<input
 			className={styles.search}
@@ -23,14 +23,14 @@ const Search = ({ value, onChange, onEnterKey }) => (
 			placeholder="Search"
 		/>
 	</div>
-)
+))
 
 export default Search
 
 Search.propTypes = {
 	value: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
-	enter: PropTypes.func.isRequired,
+	onEnterKey: PropTypes.func.isRequired,
 }
 
 Search.defaultProps = {

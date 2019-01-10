@@ -7,13 +7,18 @@ import { onScroll, handleSearch } from '../../logic/api'
 import { Search, Sort, Button } from '..'
 import styles from './styles.css'
 
-const AppBar = ({ articles, setArticles }) => {
+const AppBar = React.memo(({
+	articles,
+	setArticles,
+	setActive,
+	setLoading,
+}) => {
 	const [search, setSearch] = useState('')
 	const [sort, setSort] = useState('')
 	const [page, setPage] = useState(1)
 
 	// Handles Initial search
-	const handleClick = () => { handleSearch(search, sort, page, setPage, setArticles) }
+	const handleClick = () => { handleSearch(search, sort, page, setPage, setArticles, setActive, setLoading) }
 	window.onscroll = () => { onScroll(search, sort, page, setPage, articles, setArticles) }
 
 	return (
@@ -46,11 +51,13 @@ const AppBar = ({ articles, setArticles }) => {
 			</div>
 		</div>
 	)
-}
+})
 
 AppBar.propTypes = {
 	articles: PropTypes.array,
 	setArticles: PropTypes.func.isRequired,
+	setActive: PropTypes.func.isRequired,
+	setLoading: PropTypes.func.isRequired,
 }
 
 AppBar.defaultProps = {

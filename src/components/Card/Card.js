@@ -4,9 +4,9 @@ import React from 'react'
 import { Paper, Button } from '..'
 import styles from './styles.css'
 
-const handleClick = url => window.open(url)
+const handleClick = url => () => window.open(url)
 
-const Card = ({
+const Card = React.memo(({
 	title,
 	image,
 	body,
@@ -17,7 +17,7 @@ const Card = ({
 		white
 		className={styles.card}
 	>
-		<div onClick={() => handleClick(url)}>
+		<div onClick={handleClick(url)}>
 			<img className={styles.image} src={image} alt={title} />
 		</div>
 		<div className={styles.content}>
@@ -29,11 +29,11 @@ const Card = ({
 			</div>
 			<Button
 				label={buttonLabel}
-				onClick={() => handleClick(url)}
+				onClick={handleClick(url)}
 			/>
 		</div>
 	</Paper>
-)
+))
 
 export default Card
 
