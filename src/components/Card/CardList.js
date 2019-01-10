@@ -6,8 +6,12 @@ import { RingLoader } from 'react-spinners'
 import { Card } from '.'
 import styles from './styles.css'
 
-const CardList = React.memo(({ cardList, active, loading  }) => {
+const CardList = React.memo(({ cardList, active, loading }) => {
 	const cards = () => {
+		if (loading) {
+			// This is DEFINITELY overkill but I like the loading icon
+			return <RingLoader size={100} />
+		}
 		if (cardList.length) {
 			return cardList.map(card => (
 				<div className={classnames(styles.cardListItem, 'flex-shrink')}>
@@ -21,10 +25,6 @@ const CardList = React.memo(({ cardList, active, loading  }) => {
 					/>
 				</div>
 			))
-		}
-		if (loading) {
-			// This is DEFINITELY overkill but I like the loading icon
-			return <RingLoader size={100}/>
 		}
 		return (
 			<div className={styles.noResults}>

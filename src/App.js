@@ -6,7 +6,7 @@ import styles from './App.css'
 // components or a different css-in-js solution, but it seemed like overkill here.
 
 
-const App = () => {
+const App = React.memo(() => {
 
 	// In an api call-heavy app (especially with CRUD), I would probably use redux
 	// but I like the new react hooks syntax for simple stuff like this
@@ -32,6 +32,6 @@ const App = () => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default App
